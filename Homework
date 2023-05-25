@@ -1,0 +1,23 @@
+1.Вывести ко-во видео и их среднюю продолжительность у автора 1
+SELECT COUNT(*) AS videos_quantity,
+	   AVG(durations_secs)
+FROM videos
+WHERE author_id= 1
+
+2.Вывести среднюю продолжительность видео по всем авторам
+SELECT AVG(durations_secs)
+FROM videos
+
+3.Вывести два самых продолжительных видео (название и продолжительность в часах)
+SELECT 
+	description,
+	durations_secs/3600 AS durations_houer
+FROM videos
+ORDER BY durations_secs DESC
+LIMIT 2
+
+4.Вывести сумму всех пожертвований, полученных пользователем 2
+
+SELECT SUM(amount)
+FROM donaitions
+WHERE recipient_id = 2
